@@ -3,9 +3,14 @@
   "version": "1.0.0",
   "main": "src/main.js",
   "scripts": {
-    "start": "node ./src/main.js"
+    "start": "node ./src/main.js",
+    "twoja_nazwa": "echo Hello world",
+    "say": "cowsay JavaScript FTW!"
   },
   "author": "Jabi",
   "license": "MIT",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "cowsay": "^1.6.0"
+  }
 }
