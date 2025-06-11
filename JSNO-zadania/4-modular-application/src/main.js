@@ -2,13 +2,10 @@ import { createInterface } from 'node:readline';
 import { stdin as input, stdout as output } from 'node:process';
 import { makeBanner } from './banner.js'
 
-console.log(`
-****************************************
-*   WITAJ W GENERATORZE BANNERÓW [?]   *
-****************************************    
-`)
+import './program-title.js'
 
-const rl = createInterface({ input, output, });
+
+const rl = createInterface({ input, output });
 
 function mainProgram() {
 
