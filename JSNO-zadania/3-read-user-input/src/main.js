@@ -7,7 +7,7 @@ import { stdin as input, stdout as output } from 'node:process';
 
 console.log(`
 ****************************************
-*   WITAJ W GENERATORZE BANNERÓW [!]   *
+*   WITAJ W GENERATORZE BANNERÓW [?]   *
 ****************************************    
 `)
 
@@ -28,7 +28,7 @@ const rl = createInterface({
     output, //: output
 });
 
-rl.question('Podaj zdanie jakie chcesz zamienić w banner: ', (answer) => {
+rl.question('Podaj zdanie jakie chcesz zamienić w BANNER: ', (answer) => {
 
     makeBanner(answer);
 
