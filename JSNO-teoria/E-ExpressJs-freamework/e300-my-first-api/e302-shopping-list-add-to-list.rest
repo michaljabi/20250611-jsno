@@ -1,0 +1,16 @@
+# użyj tego pliku aby dodać coś na listę zakupów, lub sprawdzić czy coś jest na liście
+
+
+# zmieniając "mój nowy zakup" na co chcesz -> to się doda do listy
+
+POST http://localhost:3036/add
+Content-Type: application/json
+
+{
+ "name":"mój nowy zakup"
+}
+
+
+### podgląd Lista zakupów
+GET http://localhost:3036/list
+Content-Type: application/json
