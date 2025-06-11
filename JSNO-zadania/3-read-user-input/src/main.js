@@ -1,13 +1,16 @@
+// @ts-check
+
+// start with CommonJS -> przejde do ESM
+
+import { createInterface } from 'node:readline';
+import { stdin as input, stdout as output } from 'node:process';
+
 console.log(`
 ****************************************
 *   WITAJ W GENERATORZE BANNERÓW [!]   *
 ****************************************    
 `)
 
-// start with CommonJS -> przejde do ESM
-
-const readline = require('node:readline');
-const process = require('node:process');
 // const { stdin: input, stdout: output } = require('node:process');
 
 // process.
@@ -15,24 +18,28 @@ const process = require('node:process');
 
 // console.log(myUser)
 
-const { stdin, stdout } = process;
+// const { stdin, stdout } = process;
 
-const input = stdin;
-const output = stdout;
+// const input = stdin;
+// const output = stdout;
 
-const rl = readline.createInterface({
+const rl = createInterface({
     input, // to samo co input: input
     output, //: output
 });
 
 rl.question('Podaj zdanie jakie chcesz zamienić w banner: ', (answer) => {
 
-    const words = answer.toUpperCase().split(' ');
-    for(const word of words) {
-        console.log('*'.repeat(word.length + 4))
-        console.log(`* ${word} *`);
-        console.log('*'.repeat(word.length + 4))
-    }
+    makeBanner(answer);
 
     rl.close();
 });
+
+const BORDER_SPAN = 4;
+function makeBanner(sentence = '') {
+    const words = sentence.toUpperCase().split(' ');
+    for (const word of words) {
+        const border = '*'.repeat(word.length + BORDER_SPAN);
+        console.log(`${border}\n* ${word} *\n${border}`)
+    }
+}
