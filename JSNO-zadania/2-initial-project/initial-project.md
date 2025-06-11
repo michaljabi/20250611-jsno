@@ -11,3 +11,18 @@
 *   WITAJ W GENERATORZE BANNERÓW [!]   *
 ****************************************
 ```
+
+
+TODO:
+
+1. w [2-initial-project](./) utórz folder: `banner-generator`
+2. Otwórz folder w terminalu
+3. Uzyj komendy aby wygenerować `package.json`:
+
+```
+npm init -y
+```
+
+4. utwórz strukturę: `src/main.js` 
+5. wpisz kod który pokaże banner powyżej.
+6. razem dodamy skrypt na `npm run start`*
