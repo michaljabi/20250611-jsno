@@ -1,0 +1,11 @@
+<div class="mt-2">
+    <h1>Zadania</h1>
+    <div>
+        <a href="/">Powrót</a>
+    </div>
+    <ul>
+        <% for(const task of model.tasks) { %>
+            <li>(<%= task.id %>) <%= task.title %></li>
+        <% } %>
+    </ul>
+</div>

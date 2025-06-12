@@ -1,0 +1,23 @@
+{
+  "name": "templating-like-in-php-asp-jsp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "start:prod": "node src/server.js",
+    "start": "nodemon -e js,json,hbs src/server.js"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "@types/express-handlebars": "^6.0.2",
+    "@types/express-session": "^1.18.2",
+    "express-session": "^1.18.1",
+    "nodemon": "^3.1.10"
+  },
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "express-ejs-layouts": "^2.5.1"
+  }
+}
