@@ -20,6 +20,8 @@ app.use((req, res, next) => {
 	next();
 })
 
+// zły pomysł 
+let cache = '';
 
 app.get('/', (request, response) => {
 
