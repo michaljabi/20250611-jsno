@@ -28,9 +28,10 @@
 
 // Zanim odczytamy plik sprawdźmy czy on istnieje - dzięki "access":
 const fs = require('fs');
+// import fs from 'fs';
 
 fs.access('./sample-file.txt', (err) => {
-	if(err) {
+	if (err) {
 		console.log(err);
 		// W zależności od tego z jakiego miejsca uruchomiliśmy ten plik...
 		// Okazać się może, że plik nie istnieje !?
@@ -50,15 +51,15 @@ const myFilePath = path.resolve(__dirname, './sample-file.txt');
 // Dodatkowo fs.constants.R_OK sprawdzamy czy możemy odczytać plik.
 // https://nodejs.org/dist/latest-v14.x/docs/api/fs.html#fs_fs_access_path_mode_callback
 fs.access(myFilePath, fs.constants.R_OK, (err) => {
-	if(err) {
+	if (err) {
 		return console.error('Błąd dostępu do pliku: ', err)
 	}
 	// Jeśli jesteśmy w tym miejscu to znaczy że wszystko przebiegło pomyślnie, możemy odczytać plik:
 	fs.readFile(myFilePath, 'utf8', (err, data) => {
-		 if(err) {
-		 	  return console.error('Błąd odczytu pliku: ', err)
-		 }
-		 console.log('Treść pliku:')
-		 console.log(data);
+		if (err) {
+			return console.error('Błąd odczytu pliku: ', err)
+		}
+		console.log('Treść pliku:')
+		console.log(data);
 	})
 })

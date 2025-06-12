@@ -13,6 +13,8 @@ new Promise(() => {}).then(() => 0).then(() => {}).catch(() => {})
 const path = require('path');
 const fs = require('fs/promises'); // zwróć uwagę na /promises - importujemy inny "rodzaj" biblioteki fs.
 
+// import fs from 'fs/promises'
+
 const logFilePath = path.resolve(__dirname, 'program.log');
 fs.access(logFilePath)
 	.then(() => {
