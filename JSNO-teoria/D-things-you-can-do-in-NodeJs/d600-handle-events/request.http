@@ -1,0 +1,11 @@
+GET http://localhost:3035/users
+
+
+###
+
+POST http://localhost:3035/users
+Content-Type: application/json
+
+{
+    "sample": "data"
+}
