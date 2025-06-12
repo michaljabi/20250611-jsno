@@ -1,11 +1,20 @@
 
 // @ts-check
 
+/**
+ * @callback NumberRefund
+ * 
+ * @param {number} value
+ * @returns {void}
+ */
+
 console.log('Hello stranger... shall we start?')
 
 
 // PROVIDER: 
-
+/**
+ * @param {NumberRefund} mistery 
+ */
 function giveMeTheNumber(mistery) {
     // mistery(300)
     setTimeout(() => {
