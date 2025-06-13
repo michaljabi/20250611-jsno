@@ -48,8 +48,8 @@ const superObject = {
 	age: 56,
 	isAMember: true,
 	birth: new Date(1963, 10, 1),
-	shoutHello: function() {
-			console.log('Hello !')
+	shoutHello: function () {
+		console.log('Hello !')
 	}
 }
 
@@ -62,7 +62,8 @@ console.log(jsonData);
 const myReturnedObject = JSON.parse(jsonData);
 
 console.log(myReturnedObject);
-
+console.log(myReturnedObject.birth)
+console.log(new Date(myReturnedObject.birth).toString())
 
 
 
