@@ -12,6 +12,9 @@ import { userController } from './users/users.controller.js';
 
 const app = express();
 
+// to jest potrzebne żeby POST z JSON zadziałał
+app.use(express.json())
+
 // Make id to request middleware:
 app.use(reqIdMiddleware)
 

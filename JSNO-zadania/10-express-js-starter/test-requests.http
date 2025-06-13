@@ -6,6 +6,13 @@ GET http://localhost:4500/users
 GET http://localhost:4500/users
 Authorization: s3cr3t
 
+### Add user:
+POST http://localhost:4500/guests
+Content-Type: application/json
+
+{
+    "name": "Krysia"
+}
 
 ### Get all guests
 GET http://localhost:4500/guests
