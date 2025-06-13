@@ -1,0 +1,9 @@
+
+#  Test endpoint /user
+GET http://localhost:3035/users
+
+
+### test endpoint /
+GET http://localhost:3035/
+
+
