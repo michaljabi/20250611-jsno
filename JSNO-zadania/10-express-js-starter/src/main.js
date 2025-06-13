@@ -1,5 +1,6 @@
 import { env } from 'node:process'
 import express from 'express'
+import { ServerError } from './server-error.js';
 
 // TODO: 
 // 1 - jak obsłuże getAll() poprawnie ?
@@ -44,14 +45,27 @@ app.get('/guests/:id', async (req, res) => {
     /// sprawdzamy czy jest i 404 jak nie ma
     const inMemoryGuests = await getAll();
     const guest = inMemoryGuests.find(g => g.id === numId);
-    if (guest) {
-        res.send(guest);
-    } else {
-        res.status(404).send({ error: `Guest id: ${numId} not found!` })
+    // if (guest) {
+    //     res.send(guest);
+    // } else {
+    //     res.status(404).send({ error: `Guest id: ${numId} not found!` })
+    // }
+
+    if (!guest) {
+        throw new ServerError(`Guest id: ${numId} not found!`, 404);
     }
+    res.send(guest);
 })
 
 
+app.use((err, req, res, next) => {
+    console.error(err.stack)
+    if (err instanceof ServerError) {
+        res.status(err.status).send({ error: err.message })
+    } else {
+        res.status(500).send({ error: err.message })
+    }
+})
 
 app.listen(env.PORT, () => {
     console.log(`App is listening on http://localhost:${env.PORT}`)

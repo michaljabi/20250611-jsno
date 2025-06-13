@@ -8,7 +8,7 @@ GET http://localhost:4500/guests/1
 ### Get ONE (test 22)
 GET http://localhost:4500/guests/22
 
-### Get ONE guest
+### Get ONE guest (ERROR)
 GET http://localhost:4500/guests/231
 
 
