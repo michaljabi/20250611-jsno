@@ -70,7 +70,7 @@ app.post('/add', (req, res) => {
 		 return res.status(400).json({message: 'Sorry, `name` in body is missing...'})
 	}
 	addToList(name);
-	res.json({message: 'OK'})
+	res.status(201).json({message: 'OK'})
 })
 
 app.listen(PORT, () => {
