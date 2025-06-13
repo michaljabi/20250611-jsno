@@ -2,6 +2,8 @@
 ### Get all guests
 GET http://localhost:4500/guests
 
+### Get ONE guest (existing)
+GET http://localhost:4500/guests/1
 
 ### Get ONE guest
 GET http://localhost:4500/guests/231

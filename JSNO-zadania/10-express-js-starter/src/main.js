@@ -23,7 +23,12 @@ app.get('/guests/:id', (req, res) => {
     const { id } = req.params;
     const numId = Number(id);
     /// sprawdzamy czy jest i 404 jak nie ma
-    res.send({ numId })
+    const guest = inMemoryGuests.find(g => g.id === numId);
+    if (guest) {
+        res.send(guest);
+    } else {
+        res.status(404).send({ error: `Guest id: ${numId} not found!` })
+    }
 })
 
 app.listen(env.PORT, () => {
