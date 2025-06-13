@@ -17,15 +17,18 @@ async function getAll() {
 
 const app = express();
 
-app.get('/guests', (req, res) => {
+app.get('/guests', async (req, res) => {
 
     console.log(req.query)
     console.log(req.query.status)
     // res.json(inMemoryGuests)
-
+    const inMemoryGuests = await getAll();
+    res.send(inMemoryGuests.filter(g => req.query.status ? g.status === req.query.status : true))
+    /*
     getAll().then(inMemoryGuests => {
         res.send(inMemoryGuests.filter(g => req.query.status ? g.status === req.query.status : true))
     })
+    */
 
 
 })
@@ -35,10 +38,11 @@ app.get('/guests/22', (req, res) => {
     res.send({ id: 22, message: 'test' });
 })
 
-app.get('/guests/:id', (req, res) => {
+app.get('/guests/:id', async (req, res) => {
     const { id } = req.params;
     const numId = Number(id);
     /// sprawdzamy czy jest i 404 jak nie ma
+    const inMemoryGuests = await getAll();
     const guest = inMemoryGuests.find(g => g.id === numId);
     if (guest) {
         res.send(guest);
