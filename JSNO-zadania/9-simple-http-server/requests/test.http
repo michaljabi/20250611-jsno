@@ -19,3 +19,7 @@ GET http://localhost:3035/shop-info
 
 ### Test 404
 GET http://localhost:3035/hello
+
+
+### Test METHOD not supported
+POST http://localhost:3035/hello
