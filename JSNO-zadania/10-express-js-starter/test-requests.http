@@ -1,6 +1,7 @@
 
 ### Get all guests
 GET http://localhost:4500/guests
+Authorization: s3cr3t
 
 ### Get ONE guest (existing)
 GET http://localhost:4500/guests/1

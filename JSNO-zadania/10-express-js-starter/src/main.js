@@ -18,9 +18,27 @@ async function getAll() {
 
 const app = express();
 
+// Make id to request middleware:
+
+let id = 1;
+app.use((req, res, next) => {
+    req.id = id++;
+    console.log('REQ id nadane', req.id)
+    next()
+})
+
+//  Make auth middleware:
+app.use((req, res, next) => {
+    if (req.headers['authorization'] !== 's3cr3t') {
+        next(new ServerError('Not authorized', 401))
+    }
+    next()
+})
+
+
 app.get('/guests', async (req, res) => {
 
-    console.log(req.query)
+    console.log('[REQ id]', req.id, 'zawiera:', req.query)
     console.log(req.query.status)
     // res.json(inMemoryGuests)
     const inMemoryGuests = await getAll();
@@ -35,7 +53,10 @@ app.get('/guests', async (req, res) => {
 })
 
 // Kolejność endpointów ma znaczenie !!!
-app.get('/guests/22', (req, res) => {
+app.get('/guests/22', (req, res, next) => {
+    console.log('Specjalistyczny middleware dla 22')
+    next()
+}, (req, res) => {
     res.send({ id: 22, message: 'test' });
 })
 
