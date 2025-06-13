@@ -19,6 +19,11 @@ app.get('/guests', (req, res) => {
     res.send(inMemoryGuests.filter(g => req.query.status ? g.status === req.query.status : true))
 })
 
+// Kolejność endpointów ma znaczenie !!!
+app.get('/guests/22', (req, res) => {
+    res.send({ id: 22, message: 'test' });
+})
+
 app.get('/guests/:id', (req, res) => {
     const { id } = req.params;
     const numId = Number(id);
@@ -30,6 +35,8 @@ app.get('/guests/:id', (req, res) => {
         res.status(404).send({ error: `Guest id: ${numId} not found!` })
     }
 })
+
+
 
 app.listen(env.PORT, () => {
     console.log(`App is listening on http://localhost:${env.PORT}`)

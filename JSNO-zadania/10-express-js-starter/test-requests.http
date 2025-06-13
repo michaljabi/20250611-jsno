@@ -5,6 +5,9 @@ GET http://localhost:4500/guests
 ### Get ONE guest (existing)
 GET http://localhost:4500/guests/1
 
+### Get ONE (test 22)
+GET http://localhost:4500/guests/22
+
 ### Get ONE guest
 GET http://localhost:4500/guests/231
 
