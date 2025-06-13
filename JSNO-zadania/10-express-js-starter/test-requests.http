@@ -1,0 +1,11 @@
+
+### Get all guests
+GET http://localhost:4500/guests
+
+
+### Get CONFIRMED guests
+GET http://localhost:4500/guests?status=confirmed&test=123
+
+
+### Get UNCONFIRMED guests
+GET http://localhost:4500/guests?status=unconfirmed
