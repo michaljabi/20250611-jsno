@@ -4,14 +4,16 @@
   "main": "index.js",
   "scripts": {
     "start": "node --env-file=.env src/main.js",
-    "start:dev": "nodemon --env-file=.env src/main.js"
+    "start:dev": "nodemon --env-file=.env src/main.js",
+    "format": "prettier ./src --write"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "nodemon": "^3.1.10"
+    "nodemon": "^3.1.10",
+    "prettier": "^3.5.3"
   },
   "type": "module"
 }
