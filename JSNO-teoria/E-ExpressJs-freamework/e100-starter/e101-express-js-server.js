@@ -16,16 +16,17 @@ const app = express();
 const PORT = 3034;
 
 app.get('/', (req, res) => {
-	res.send('Witaj na mojej stronie :)')
+	res.json({message: 'Witaj...'})
+	// res.send('Witaj na mojej stronie :)')
 })
 app.get('/cars', (req, res) => {
 	res.send('Lista nowych samochodów:')
 })
-app.get('/date', (req, res) => {
+app.post('/date', (req, res) => {
 	res.send('Dzisiejsza data to:' + new Date())
 })
 app.get('/{*splat}', (req, res) => {
-	res.send('nie mam strony o adresie: ' + req.url);
+	res.status(404).send('nie mam strony o adresie: ' + req.url);
 })
 
 app.listen(PORT, () => {
