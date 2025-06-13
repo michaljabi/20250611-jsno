@@ -1,12 +1,18 @@
 import { env } from 'node:process'
 import express from 'express'
 
-const inMemoryGuests = [
-    { id: 1, name: "Michał", status: "confirmed" },
-    { id: 2, name: "Kasia", status: "confirmed" },
-    { id: 3, name: "Jacek", status: "unconfirmed" },
-    { id: 4, name: "Zosia", status: "confirmed" },
-]
+// TODO: 
+// 1 - jak obsłuże getAll() poprawnie ?
+// 2 - jak przerobić błąd złapany przez express na JSON ?
+
+async function getAll() {
+    return [
+        { id: 1, name: "Michał", status: "confirmed" },
+        { id: 2, name: "Kasia", status: "confirmed" },
+        { id: 3, name: "Jacek", status: "unconfirmed" },
+        { id: 4, name: "Zosia", status: "confirmed" },
+    ]
+}
 
 
 const app = express();
@@ -16,7 +22,12 @@ app.get('/guests', (req, res) => {
     console.log(req.query)
     console.log(req.query.status)
     // res.json(inMemoryGuests)
-    res.send(inMemoryGuests.filter(g => req.query.status ? g.status === req.query.status : true))
+
+    getAll().then(inMemoryGuests => {
+        res.send(inMemoryGuests.filter(g => req.query.status ? g.status === req.query.status : true))
+    })
+
+
 })
 
 // Kolejność endpointów ma znaczenie !!!
