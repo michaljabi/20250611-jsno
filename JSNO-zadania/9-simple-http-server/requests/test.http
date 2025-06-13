@@ -8,3 +8,14 @@ Content-Type: application/json
 GET http://localhost:3035/
 
 
+
+### Show all products
+GET http://localhost:3035/products
+
+
+### Show shop name
+GET http://localhost:3035/shop-info
+
+
+### Test 404
+GET http://localhost:3035/hello

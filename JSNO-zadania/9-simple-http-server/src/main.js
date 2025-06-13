@@ -9,19 +9,28 @@ console.log(data.products.length);
 const { PORT } = env;
 
 const server = createServer((request, response) => {
-  console.log("Method", request.method);
-  console.log("URL", request.url);
-  console.log("Headers:", request.headers);
-  const { host } = request.headers;
+    console.log("Method", request.method);
+    console.log("URL", request.url);
+    console.log("Headers:", request.headers);
+    // const { host } = request.headers;
 
-  response.statusCode = 404;
-  response.write(`Hello world? You are: ${host}`);
-  response.end();
-  // response.write(`dopisane....`);
+    switch (request.url) {
+        case "/products":
+            response.write(JSON.stringify(data.products));
+            break;
+        case "/shop-info":
+            response.write(data.shopName);
+            break;
+    }
+
+    //response.statusCode = 404;
+    //response.write(`Hello world? You are: ${host}`);
+    response.end();
+    // response.write(`dopisane....`);
 });
 
 server.listen(PORT, () => {
-  console.log(`Server http://localhost:${PORT} running..`);
+    console.log(`Server http://localhost:${PORT} running..`);
 });
 
 // console.log(process.env.PORT)
