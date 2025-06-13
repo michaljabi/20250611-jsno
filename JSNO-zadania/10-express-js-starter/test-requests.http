@@ -3,9 +3,16 @@
 GET http://localhost:4500/guests
 
 
+### Get ONE guest
+GET http://localhost:4500/guests/231
+
+
 ### Get CONFIRMED guests
 GET http://localhost:4500/guests?status=confirmed&test=123
 
 
 ### Get UNCONFIRMED guests
 GET http://localhost:4500/guests?status=unconfirmed
+
+### Get not-existent Status guests
+GET http://localhost:4500/guests?status=xxxx

@@ -14,9 +14,16 @@ const app = express();
 app.get('/guests', (req, res) => {
 
     console.log(req.query)
-    console.log(req.quer.status)
-    res.json(inMemoryGuests)
-    //res.send('<h1>Hello</h1>')
+    console.log(req.query.status)
+    // res.json(inMemoryGuests)
+    res.send(inMemoryGuests.filter(g => req.query.status ? g.status === req.query.status : true))
+})
+
+app.get('/guests/:id', (req, res) => {
+    const { id } = req.params;
+    const numId = Number(id);
+    /// sprawdzamy czy jest i 404 jak nie ma
+    res.send({ numId })
 })
 
 app.listen(env.PORT, () => {
