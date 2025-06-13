@@ -1,7 +1,14 @@
 
+### USERS (NOT authorized)
+GET http://localhost:4500/users
+
+### USERS (authorized)
+GET http://localhost:4500/users
+Authorization: s3cr3t
+
+
 ### Get all guests
 GET http://localhost:4500/guests
-Authorization: s3cr3t
 
 ### Get ONE guest (existing)
 GET http://localhost:4500/guests/1

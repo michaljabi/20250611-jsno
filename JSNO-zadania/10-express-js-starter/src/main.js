@@ -2,6 +2,9 @@ import { env } from 'node:process'
 import express from 'express'
 import { ServerError } from './server-error.js';
 import { guestController } from './guests/guests.controller.js';
+import { authMiddleware } from './middlewares/auth.middleware.js';
+import { reqIdMiddleware } from './middlewares/req-id.middleware.js';
+import { userController } from './users/users.controller.js';
 
 // TODO: 
 // 1 - jak obsłuże getAll() poprawnie ?
@@ -10,23 +13,11 @@ import { guestController } from './guests/guests.controller.js';
 const app = express();
 
 // Make id to request middleware:
-
-let id = 1;
-app.use((req, res, next) => {
-    req.id = id++;
-    console.log('REQ id nadane', req.id)
-    next()
-})
-
-//  Make auth middleware:
-app.use((req, res, next) => {
-    if (req.headers['authorization'] !== 's3cr3t') {
-        // next(new ServerError('Not authorized', 401))
-    }
-    next()
-})
+app.use(reqIdMiddleware)
 
 app.use('/guests', guestController)
+
+app.use('/users', authMiddleware, userController)
 
 app.use((err, req, res, next) => {
     console.error(err.stack)
